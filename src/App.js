@@ -14,13 +14,24 @@ function App() {
       id: Date.now(),
       name: member.name,
       email: member.email,
-      role: member.role
+      role: member.role,
     }
     setMemberList([...memberList, newMember])
   }
 
-  const editMember = (member) => {
+  const setEditMember = (member) => {
     setMemberToEdit(member)
+  }
+
+  const editMember = (editedMember) => {
+    const updatedMemberList = 
+      memberList.map((member) =>
+      member.id === editedMember.id ?
+      editedMember :
+      member
+    )
+    setMemberList(updatedMemberList)
+    setMemberToEdit({})
   }
 
   return (
@@ -28,10 +39,12 @@ function App() {
         <Form 
           addNewMember={addNewMember}
           memberToEdit={memberToEdit}
+          editMember={editMember}
+          memberList={memberList}
         />
         <List 
           memberList={memberList}
-          editMember={editMember}
+          setEditMember={setEditMember}
         />
     </div>
   );

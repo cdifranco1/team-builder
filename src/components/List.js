@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { ListGroup, ListGroupItem, Row, Container, Button } from 'reactstrap';
+import React from 'react';
+import { ListGroup, ListGroupItem, Container, Button } from 'reactstrap';
 
-const List = ({memberList, editMember}) => {
+const List = ({memberList, setEditMember}) => {
   return (
     <Container>
       <h1 className="m-3">Team Members:</h1>
@@ -13,7 +13,7 @@ const List = ({memberList, editMember}) => {
             <strong>Role: </strong> {member.role}<br/>
             <Button 
               className="w-10 m-2"
-              onClick={() => editMember(member)}  
+              onClick={() => setEditMember(member)}  
             >Edit</Button>
           </ListGroupItem>
         </ListGroup>
