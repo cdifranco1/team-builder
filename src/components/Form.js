@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-const Form = (props) => {
+const MemberForm = (props) => {
   const [member, setMember] = useState({
     name: "",
     email: '',
@@ -18,21 +19,25 @@ const Form = (props) => {
   }
 
   return (
-    <form onSubmit={submitHandler}>
-      <label htmlFor="name">Name: </label>
-      <input type="text" name="name" id="name" onChange={inputHandler}/>
+    <Form onSubmit={submitHandler}>
+      <FormGroup>
+        <Label htmlFor="name">Name: </Label>
+        <Input type="text" name="name" id="name" onChange={inputHandler}/>
+      </FormGroup>
       
-      <label htmlFor="email">Email: </label>
-      <input type="text" name="email" id="email" onChange={inputHandler}/>
+      <FormGroup>
+        <Label htmlFor="email">Email: </Label>
+        <Input type="text" name="email" id="email" onChange={inputHandler}/>
+      </FormGroup>
 
-      <label htmlFor="role">Role: </label>
-      <input type="text" name="role" id="role" onChange={inputHandler}/>
+      <Label htmlFor="role">Role: </Label>
+      <Input type="text" name="role" id="role" onChange={inputHandler}/>
 
-      <button type="submit">Submit</button>
-    </form>
+      <Button className="mt-4" type="submit">Submit</Button>
+    </Form>
     )
 }
 
 
-export default Form;
+export default MemberForm;
 

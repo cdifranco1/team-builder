@@ -7,6 +7,7 @@ import './App.css';
 
 function App() {
   const [memberList, setMemberList] = useState([])
+  const [memberToEdit, setMemberToEdit] = useState({})
  
   const addNewMember = (member) => {
     const newMember = {
@@ -18,16 +19,20 @@ function App() {
     setMemberList([...memberList, newMember])
   }
 
+  const editMember = (member) => {
+    setMemberToEdit(member)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="container">
         <Form 
           addNewMember={addNewMember}
+          memberToEdit={memberToEdit}
         />
         <List 
           memberList={memberList}
+          editMember={editMember}
         />
-      </header>
     </div>
   );
 }
